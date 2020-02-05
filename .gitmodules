@@ -1,0 +1,6 @@
+[submodule "inkblotty"]
+	path = inkblotty
+	url = https://github.com/tosi29/inkblotty.git
+[submodule "themes/inkblotty"]
+	path = themes/inkblotty
+	url = https://github.com/tosi29/inkblotty.git
