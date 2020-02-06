@@ -1,0 +1,49 @@
+{{ $section_count := len .Paginator.Pages }}
+<div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
+    <div class="UnderlineNav width-full user-profile-nav js-sticky top-0">
+        <nav class="UnderlineNav-body" data-pjax aria-label="User profile">
+            <a aria-current="page" class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected " href="{{ .Site.BaseURL }}">
+                Tasks
+                <span class="Counter hide-lg hide-md hide-sm">
+                        {{ $section_count}}
+                </span>
+            </a>
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3" href="{{ absURL "about/" }}">
+                About
+            </a>
+        </nav>
+    </div>
+    <div class="position-relative">
+        <div id="user-repositories-list">
+            <div class="sota-table">
+                <table>
+                    <tbody>
+                    <tr>
+                        <th class="text-left">NAME</th>
+                        <th class="text-left">TYPE</th>
+                        <th class="text-left">PROVIDER</th>
+                        <th class="text-left">DATASET</th>
+                        <th class="text-left">MODEL</th>
+                        <th class="text-center">EVALUATION</th>
+                        <th class="text-center">SCORE</th>
+                        <th class="text-center">PLATFORM</th>
+                        <th class="text-center">TAG</th>
+                    </tr>
+                    {{ range .Pages }}
+                    <tr>
+                        <td>{{ .Params.name }}</td>
+                        <td>{{ .Params.type }}</td>
+                        <td align="center"><a href="{{ .Params.provider_url | absURL }}"><img src="{{ .Params.provider | absURL}}.png" width = 32 height = 32></a></td>
+                        <td>{{ .Params.dataset }}</td>
+                        <td>{{ .Params.model }}</td>
+                        <td align="center">{{ .Params.evaluation }}</td>
+                        <td>{{ .Params.score }}</td>
+                        <td><a href="{{ .Params.platform_url }}">{{ .Params.platform }}</a></td>
+                        <td>{{ .Params.tag }}</td>
+                    </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

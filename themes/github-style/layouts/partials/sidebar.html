@@ -1,0 +1,67 @@
+<div class="h-card col-lg-3 col-md-4 col-12 float-md-left pr-md-3 pr-xl-6 sidebar1 widgets columns-1">
+
+    {{ partial "sidebar_top.html" }}
+    <aside class="widget widget_users">
+        <h2>Users</h2>
+        <ul class="widget__list">
+            {{- range $name, $items := .Site.Taxonomies.users -}}
+            <li class="cat-item cat-item-2">
+                <a href="{{- .Page.Permalink -}}">{{ .Page.Title }} ({{ $items.Count }})</a>
+            </li>
+            {{- end }}
+        </ul>
+    </aside>
+
+    <aside class="widget widget_categories">
+        <h2>categories</h2>
+        <ul class="widget__list">
+            {{- range $name, $items := .Site.Taxonomies.categories -}}
+            <li class="cat-item cat-item-2">
+                <a href="{{- .Page.Permalink -}}">{{ .Page.Title }} ({{ $items.Count }})</a>
+            </li>
+            {{- end }}
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2>Tags</h2>
+        <div class="tagcloud">
+            {{- range $name, $items := .Site.Taxonomies.tags -}}
+            <a class="tag-cloud-link" href="{{- .Page.Permalink -}}" title="{{ $name }}" style="font-size: 12pt;">{{ .Page.Title }}</a>&emsp;
+            {{- end }}
+        </div>
+    </aside>
+
+    <aside class="widget widget_series">
+        <h2>Series</h2>
+        <ul class="widget__list">
+            {{- range $name, $items := .Site.Taxonomies.series -}}
+            <li class="cat-item cat-item-2">
+                <a href="{{- .Page.Permalink -}}">{{ .Page.Title }} ({{ $items.Count }})</a>
+            </li>
+            {{- end }}
+        </ul>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2>Recent Posts</h2>
+        <ul>
+            {{- $recent_articles_num := (.Site.Params.widgets.recent_articles_num | default 10) }}
+            {{- range first $recent_articles_num (where .Site.RegularPages "Section" "in" (.Site.Params.postSections | default (slice "post"))) }}
+            <li>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
+            {{- end }}
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2>Archives</h2>
+        <ul>
+            {{- range $name, $items := .Site.Taxonomies.archives -}}
+            <li><a href="{{- .Page.Permalink -}}">{{ .Page.Title }} ({{ $items.Count }})</a></li>
+            {{- end }}
+        </ul>
+    </aside>
+
+</div>

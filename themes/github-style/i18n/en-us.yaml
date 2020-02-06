@@ -1,0 +1,22 @@
+
+
+- id: related_posts_title
+  translation: Related Posts
+
+- id: users_title
+  translation: Users
+
+- id: categories_title
+  translation: Categories
+
+- id: series_title
+  translation: Series
+
+- id: tags_title
+  translation: Tags
+
+- id: recent_posts_title
+  translation: Recent Posts
+
+- id: archives_title
+  translation: Archives

@@ -1,47 +1,12 @@
-baseURL = "https://example.com"
-title = "AIFactoryHub"
-author = "Author"
-theme = "inkblotty"
-paginate = 10
-
+baseURL = "https://vigorous-borg-c0d251.netlify.com"
 languageCode = "en-us"
-DefaultContentLanguage = "en-us"
-hasCJKLanguage = "true"
-
-enableInlineShortcodes = true
-footnoteReturnLinkContents = "^"
-
-disqusShortname = ""
-googleAnalytics = ""
-
-summaryLength=150
-
-[permalinks]
-  post = "/:slug/"
-  page = "/:slug/"
-
+title = "AIFactoryHub"
+theme = "github-style"
+[params]
+  mainSections = ["posts"]
 [taxonomies]
   user = "users"
   tag = "tags"
   category = "categories"
   series = "series"
   archive = "archives"
-
-[[menu.main]]
-  identifier = "about"
-  name = "About"
-  url = "/about/"
-  weight = 10
-
-[Params]
-  readmore = true
-
-[outputs]                          # c.f. https://gohugo.io/templates/output-formats/
-  home = ["HTML", "RSS"]
-  page =  ["HTML"]
-  section =  ["HTML", "RSS"]
-  taxonomyTerm =  ["HTML", "RSS"]
-  taxonomy =  ["HTML", "RSS"]
-
-[sitemap]
-  filename = "sitemap.xml"  # c.f. https://gohugo.io/templates/sitemap-template/#configure-sitemap-xml
