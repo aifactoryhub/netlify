@@ -27,7 +27,7 @@
                         <th class="text-center">EVALUATION</th>
                         <th class="text-center">SCORE</th>
                         <th class="text-center">PLATFORM</th>
-                        <th class="text-center">TAG</th>
+                        <th class="text-center">TAGS</th>
                     </tr>
                     {{ range .Pages }}
                     <tr>
@@ -39,7 +39,7 @@
                         <td align="center">{{ .Params.evaluation }}</td>
                         <td>{{ .Params.score }}</td>
                         <td><a href="{{ .Params.platform_url }}">{{ .Params.platform }}</a></td>
-                        <td>{{ .Params.tag }}</td>
+                        <td>{{ .Params.tags }}</td>
                     </tr>
                     {{ end }}
                 </tbody>
