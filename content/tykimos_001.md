@@ -24,6 +24,4 @@ evaluation = "Accuracy"
 score = "0.94283"
 platform = "Blog"
 platform_url = "https://tykimos.github.io/2020/01/25/keras_lstm_lotto_v895/"
-demo = "Azure"
-demo_url = "http://222.114.162.6:8080/aifactory/task/detail.do?taskId=T00000000000000000003"
 +++
