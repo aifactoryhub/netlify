@@ -25,9 +25,9 @@
 
     <aside class="widget widget_tag_cloud">
         <h2>Tags</h2>
-        <div class="tagcloud">
+        <div class="widget__list">
             {{- range $name, $items := .Site.Taxonomies.tags -}}
-            <a class="tag-cloud-link" href="{{- .Page.Permalink -}}" title="{{ $name }}" style="font-size: 12pt;">{{ .Page.Title }}</a>&emsp;
+            <a class="tag-cloud-link" href="{{- .Page.Permalink -}}" title="{{ $name }}">{{ .Page.Title }}</a>&emsp;
             {{- end }}
         </div>
     </aside>

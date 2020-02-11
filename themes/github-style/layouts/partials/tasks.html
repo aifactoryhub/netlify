@@ -8,9 +8,6 @@
                         {{ $section_count}}
                 </span>
             </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3" href="{{ absURL "about/" }}">
-                About
-            </a>
         </nav>
     </div>
     <div class="position-relative">
@@ -20,7 +17,7 @@
                     <tbody>
                     <tr>
                         <th class="text-left">NAME</th>
-                        <th class="text-left">TYPE</th>
+                        <th class="text-left">CATEGORIES</th>
                         <th class="text-left">PROVIDER</th>
                         <th class="text-left">DATASET</th>
                         <th class="text-left">MODEL</th>
@@ -28,18 +25,15 @@
                         <th class="text-center">SCORE</th>
                         <th class="text-center">PLATFORM</th>
                         <th class="text-center">TAGS</th>
+                        <th class="text-center">DEMO</th>
                     </tr>
                     {{ range .Pages }}
                     <tr>
                         <td>{{ .Params.name }}</td>
                         <td>
-                            <ul class="widget__list">
-                                {{- range $name, $items := .Params.categories -}}
-                                <li class="cat-item cat-item-2">
-                                    <a href="{{- .Page.Permalink -}}">{{ $name }}</a>
-                                </li>
-                                {{- end }}
-                            </ul>   
+                            {{ range .Params.categories }}
+                            <a href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}">[{{ . }}]</a>
+                            {{ end }}
                         </td>
                         <td align="center"><a href="{{ .Params.provider_url | absURL }}"><img src="{{ .Params.provider | absURL}}.png" width = 32 height = 32></a></td>
                         <td>{{ .Params.dataset }}</td>
@@ -48,15 +42,19 @@
                         <td>{{ .Params.score }}</td>
                         <td><a href="{{ .Params.platform_url }}">{{ .Params.platform }}</a></td>
                         <td>
-                            <ul class="widget__list">
-                                {{- range $name, $items := .Params.tags -}}
-                                <li class="cat-item cat-item-2">
-                                    <a href="{{- .Page.Permalink -}}">{{ $name }}</a>
-                                </li>
-                                {{- end }}
-                            </ul>   
+                            {{ range .Params.tags }}
+                            <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">[{{ . }}]</a>
+                            {{ end }}
                         </td>
+                        <td>
+                            {{ if .Params.demo }}
+                            <a href="{{ .Params.demo_url }}">{{ .Params.demo }}</a>
+                            {{ else }}
+                            N/A
+                            {{ end }}
+                        </td>                            
                     </tr>
+                    {{ end }}
                 </tbody>
             </table>
         </div>
